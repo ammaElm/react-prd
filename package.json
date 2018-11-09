@@ -127,6 +127,7 @@
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "lint-staged": "^8.0.4",
-    "react-hot-loader": "^4.3.12"
+    "react-hot-loader": "^4.3.12",
+    "redux-thunk": "^2.3.0"
   }
 }
