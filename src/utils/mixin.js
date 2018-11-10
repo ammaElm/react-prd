@@ -13,6 +13,7 @@ export default methods => {
   */
 
   export const padStr = (value, position, padstr, inputElement) => {
+    // debugger;
     position.forEach((item, index) => {
       if( value.length > item + index ){
         value = value.substring( 0, item + index ) + padstr + value.substring( item + index )
@@ -24,4 +25,5 @@ export default methods => {
       inputElement.setSelectionRange(value.length, value.length)
     })
     return value
+  
   }

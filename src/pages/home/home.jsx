@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 import './home.less'
 // import { padStr } from '../../utils/mixin.js'
-import { padStr } from '@/utils/mixin';
+import { padStr } from '@/utils/mixin.js';
 
 
 class Home extends Component{
