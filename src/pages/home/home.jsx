@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import './home.less'
+// import { padStr } from '../../utils/mixin.js'
+import { padStr } from '@/utils/mixin';
+
 
 class Home extends Component{
   // static propTypes = {
@@ -17,7 +20,9 @@ class Home extends Component{
     alertStatus:false,
     alertTip: '',
     formData: {
-      name:111,
+      orderSum: '',
+      name: '111',
+      phoneNo: '',
     },
   }
 
@@ -25,36 +30,49 @@ class Home extends Component{
 
   handleInput = (type,event) => {
     let value = event.target.value;
+    let formData = this.state.formData;
     switch(type){
       case 'orderSum':
         value = value.replace(/\D/g,'');
+        formData.orderSum = value
         break;
       case 'name':
+        formData.name = value
         break;
       case 'phoneNo':
-        value = this.padStr(value.replace(/\D/g,''),[3,7],'',event.target);
+        value = padStr(value.replace(/\D/g,''),[3,7],'',event.target);
+        formData.phoneNo = value
         break;
         default:;
       }
-      // let state = this.state.slive(0)
+  
       // this.props.saveFormData(value,type);
-      let formData = this.state.formData.slice(0)
       
+
       this.setState({
         formData:formData
       })
+      console.log(this.state.formData)
   }
 
 
   render() {
     return (
       <main className="home-container">
-        <p className="common-title">请录入你的信息</p>
+        <p className="common-title">welcoming,please input your informatin </p>
         <form className="home-form">
-          <div className="home-form-item"></div>
-            <span>销售金额：</span>
-            <input type="text" placeholder="请输入订单金额" value={this.state.formData.name} onChange={this.handleInput.bind(this,'name')}/>
-  
+          <div className="home-form-item">
+            <span>sales acount :</span>
+            <input type="text" placeholder="please input sales acount" value={this.state.formData.orderSum} onChange={this.handleInput.bind(this,'orderSum')}/>
+          </div> 
+          <div className="home-form-item">
+            <span>customer name :</span>
+            <input type="text" placeholder="please input customer name" value={this.state.formData.name} onChange={this.handleInput.bind(this,'name')}/>
+          </div>  
+          <div className="home-form-item">
+            <span>sales phone :</span>
+            <input type="text" placeholder="please input sales phone" value={this.state.formData.phoneNo} onChange={this.handleInput.bind(this,'phoneNo')}/>
+          </div>   
         </form>
       </main>
     )

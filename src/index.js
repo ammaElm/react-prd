@@ -7,6 +7,9 @@ import './index.css';
 // import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { AppContainer } from 'react-hot-loader'
+import './utils/setRem.js'
+import './style/base.css'
+
 
 FastClick.attach(document.body)
 
