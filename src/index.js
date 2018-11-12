@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import { AppContainer } from 'react-hot-loader'
 import './utils/setRem.js'
 import './style/base.css'
+import './style/iconfont.css'
 
 
 FastClick.attach(document.body)

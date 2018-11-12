@@ -42,3 +42,28 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+##运行项目
+
+```
+cd react-ptd
+
+npm i  
+  
+npm start（运行）
+
+npm run build （发布）
+```
+
+##技术栈
+
+* react
+* webpack
+* react-router
+
+##核心点
+* postcss-px2rem实现打包后px转换rem
+* ReactCSSTransitionGroup实现页面切换过度
+
+

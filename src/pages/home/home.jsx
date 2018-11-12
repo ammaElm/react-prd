@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import './home.less'
 // import { padStr } from '../../utils/mixin.js'
 import { padStr } from '@/utils/mixin.js';
+import PubHeader from '../../components/pubHeader/pubHeader'
 
 
 class Home extends Component{
@@ -59,19 +60,20 @@ class Home extends Component{
   render() {
     return (
       <main className="home-container">
+        <PubHeader />
         <p className="common-title">welcoming,please input your informatin </p>
         <form className="home-form">
           <div className="home-form-item">
             <span>sales acount :</span>
-            <input type="text" placeholder="please input sales acount" value={this.state.formData.orderSum} onChange={this.handleInput.bind(this,'orderSum')}/>
+            <input type="text" placeholder="sales acount" value={this.state.formData.orderSum} onChange={this.handleInput.bind(this,'orderSum')}/>
           </div> 
           <div className="home-form-item">
             <span>customer name :</span>
-            <input type="text" placeholder="please input customer name" value={this.state.formData.name} onChange={this.handleInput.bind(this,'name')}/>
+            <input type="text" placeholder="customer name" value={this.state.formData.name} onChange={this.handleInput.bind(this,'name')}/>
           </div>  
           <div className="home-form-item">
             <span>sales phone :</span>
-            <input type="text" placeholder="please input sales phone" value={this.state.formData.phoneNo} onChange={this.handleInput.bind(this,'phoneNo')}/>
+            <input type="text" placeholder="sales phone" value={this.state.formData.phoneNo} onChange={this.handleInput.bind(this,'phoneNo')}/>
           </div>   
         </form>
       </main>

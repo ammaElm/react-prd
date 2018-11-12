@@ -17,7 +17,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-
+const px2rem = require('postcss-px2rem');
 
 function resolveDir (dir) {
   return path.join(__dirname, '..' , dir)
@@ -66,7 +66,9 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
               flexbox: 'no-2009',
             },
             stage: 3,
+            //设计稿根据750px(iphone6)
           }),
+          px2rem({remUnit: 75})//设计稿根据750px(iphone6)
         ],
       },
     },

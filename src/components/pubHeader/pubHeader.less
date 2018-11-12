@@ -1,0 +1,23 @@
+@import (reference) "../../style/mixin.less";
+
+.header-container{
+  background-color: @bg-color;
+  .wh(100%, 88px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  .header-item{
+    line-height: 88px;
+    .font(32px,#555);
+    &:nth-of-type(2){
+      font-weight: bolder;
+    }
+    span i{
+      .font(40px,#555);
+    }
+  }
+}
