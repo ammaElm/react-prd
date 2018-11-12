@@ -61,6 +61,9 @@ npm run build （发布）
 * react
 * webpack
 * react-router
+* ES6/7/8
+* less
+
 
 ## 核心点
 * postcss-px2rem实现打包后px转换rem
