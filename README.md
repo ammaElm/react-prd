@@ -69,4 +69,9 @@ npm run build （发布）
 * postcss-px2rem实现打包后px转换rem
 * ReactCSSTransitionGroup实现页面切换过度
 
+### just record
+postcss-px2rem
+iconfont引入
+
+
 
