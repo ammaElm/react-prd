@@ -72,6 +72,7 @@ npm run build （发布）
 ### just record
 postcss-px2rem
 iconfont引入
-
+navlink路由跳转
+ReactCSSTransitionGroup动画实现
 
 

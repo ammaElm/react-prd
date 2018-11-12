@@ -6,20 +6,25 @@ import Route from './router/index.js';
 import './index.css';
 // import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { AppContainer } from 'react-hot-loader'
+// import { AppContainer } from 'reac÷t-hot-loader'
 import './utils/setRem.js'
 import './style/base.css'
 import './style/iconfont.css'
+
 
 
 FastClick.attach(document.body)
 
 const render = Component =>{
   ReactDOM.render(  
-    <AppContainer>
+    // <AppContainer>
+    //   <Component />
+    // </AppContainer>,
+    <div className="main-container">
+      {/* <PubHeader /> */}
       <Component />
-    </AppContainer>,
-      document.getElementById('root')
+    </div>,
+    document.getElementById('root')
   )
 }
 render(Route)
