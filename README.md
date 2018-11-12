@@ -44,7 +44,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 
-##运行项目
+## 运行项目
 
 ```
 cd react-ptd
@@ -56,13 +56,13 @@ npm start（运行）
 npm run build （发布）
 ```
 
-##技术栈
+## 技术栈
 
 * react
 * webpack
 * react-router
 
-##核心点
+## 核心点
 * postcss-px2rem实现打包后px转换rem
 * ReactCSSTransitionGroup实现页面切换过度
 
