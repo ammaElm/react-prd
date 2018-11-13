@@ -4,6 +4,7 @@ import './home.less'
 // import { padStr } from '../../utils/mixin.js'
 import { padStr } from '@/utils/mixin.js';
 import PubHeader from '../../components/pubHeader/pubHeader'
+import OpacityTouch from '../../components/opacityTouch/opacityTouch'
 
 
 class Home extends Component{
@@ -55,12 +56,15 @@ class Home extends Component{
       })
       console.log(this.state.formData)
   }
+  infoSubmit = () => {
+    
+  }
 
 
   render() {
     return (
       <main className="home-container">
-        <PubHeader />
+        <PubHeader title="HOME PAGE"/>
         <p className="common-title">welcoming,please input your informatin </p>
         <form className="home-form">
           <div className="home-form-item">
@@ -76,6 +80,23 @@ class Home extends Component{
             <input type="text" placeholder="sales phone" value={this.state.formData.phoneNo} onChange={this.handleInput.bind(this,'phoneNo')}/>
           </div>   
         </form>
+        <div className="upload-img-con">
+          <p className="common-title">please choose what you prefer ~</p>
+          <div className="file-lable">
+            <span className="common-select-btn">upload image</span>
+            <input type="file" onChange={this.uploadImg}/>
+          </div>
+          {/* <img src={this.props.formData.imgpath} className="select-img" alt=""/> */}
+        </div>
+        <div className="upload-img-con">
+          <p className="common-title">please upload your image</p>
+          <div className="file-lable">
+            <span className="common-select-btn">upload image</span>
+            <input type="file" onChange={this.uploadImg}/>
+          </div>
+          {/* <img src={this.props.formData.imgpath} className="select-img" alt=""/> */}
+        </div>
+        <OpacityTouch className="submit-btn" clickCallBack={this.infoSubmit}></OpacityTouch>
       </main>
     )
   }

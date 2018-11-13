@@ -6,8 +6,8 @@ import home from '@/pages/home/home'
 // const help = require()
 // import help from '../pages/help/help.jsx'
 // import game from '../pages/game/game.jsx'
-const help = asyncComponent(()=>{ import("../pages/help/help") })
-const game = asyncComponent(()=>{ import("../pages/game/game") })
+const help = asyncComponent(()=>import("../pages/help/help"))
+const game = asyncComponent(()=>import("../pages/game/game"))
 
 export default class RouteConfig extends Component{
   render(){

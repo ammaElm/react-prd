@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import './help.less'
+import PubHeader from '../../components/pubHeader/pubHeader'
 
 class HelpPage extends Component {
 
   render () {
     return (
       <div>
-        help
+        <PubHeader title="HELP CENTER"/>
       </div>
     )
   }

@@ -70,9 +70,10 @@ npm run build （发布）
 * ReactCSSTransitionGroup实现页面切换过度
 
 ### just record
-postcss-px2rem
-iconfont引入
-navlink路由跳转
-ReactCSSTransitionGroup动画实现
+* postcss-px2rem
+* iconfont引入
+* navlink路由跳转
+* ReactCSSTransitionGroup动画实现
+* 使用webpack2中import()乙部加载组件;详见：https://segmentfault.com/a/1190000009820646
 
 

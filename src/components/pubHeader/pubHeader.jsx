@@ -25,7 +25,7 @@ class PubHeader extends Component{
       <div>
         <header className="header-container">
         <div className="header-item" onClick={this.toggleNav}><span><i className="iconfont icon-shebeiguanli"></i></span></div>
-        <div className="header-item">HOME PAGE</div>
+        <div className="header-item">{this.props.title}</div>
         <div className="header-item"><span><i className="iconfont icon-shiyongwendang"></i></span></div>
         </header>
         <ReactCSSTransitionGroup
