@@ -1,8 +1,8 @@
-export default methods => {
-   return target => {
-     Object.assign(target.prototype, methods)
-   }
- }
+// export default methods => {
+//    return target => {
+//      Object.assign(target.prototype, methods)
+//    }
+//  }
 
  /**
   * 字符串填充函数

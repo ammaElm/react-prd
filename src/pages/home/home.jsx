@@ -5,6 +5,12 @@ import './home.less'
 import { padStr } from '@/utils/mixin.js';
 import PubHeader from '../../components/pubHeader/pubHeader'
 import OpacityTouch from '../../components/opacityTouch/opacityTouch'
+import { uploadIMG, getRecord } from '../../api/api.js'
+import $envconfig from '../../utils/envconfig.js'
+// import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { saveFormData, saveImg, clearData } from '@/store/home/action'
+import { clearSelected } from '@/store/production/action'
 
 
 class Home extends Component{
@@ -18,48 +24,75 @@ class Home extends Component{
   // constructor(){
 
   // }
-  state = {
-    alertStatus:false,
-    alertTip: '',
-    formData: {
-      orderSum: '',
-      name: '111',
-      phoneNo: '',
-    },
-  }
+
+  // state = {
+  //   alertStatus:false,
+  //   alertTip: '',
+  //   formData: {
+  //     orderSum: '',
+  //     name: '111',
+  //     phoneNo: '',
+  //   },
+  //   imgSrc:'',
+  // }
 
   selectedProList=[];
 
+  componentWillMount(){
+    this.getRecord('passed')
+  }
+
   handleInput = (type,event) => {
     let value = event.target.value;
-    let formData = this.state.formData;
+    // let formData = this.state.formData;
     switch(type){
       case 'orderSum':
         value = value.replace(/\D/g,'');
-        formData.orderSum = value
+        // formData.orderSum = value
         break;
       case 'name':
-        formData.name = value
+        // formData.name = value
         break;
       case 'phoneNo':
         value = padStr(value.replace(/\D/g,''),[3,7],'',event.target);
-        formData.phoneNo = value
+        // formData.phoneNo = value
         break;
         default:;
       }
-  
-      // this.props.saveFormData(value,type);
       
-
-      this.setState({
-        formData:formData
-      })
-      console.log(this.state.formData)
+      // this.setState({
+      //   formData:formData
+      // })
+      // console.log(this.state.formData)
+      
+      this.props.saveFormData( value, type)
+      // debugger;
+      console.log(this.props.formData)
   }
+  uploadImg = event => {
+    let formdata = new FormData()
+    console.log(event.target.files[0])
+    formdata.append('file', event.target.files[0])
+    console.log(formdata)
+    uploadIMG(formdata).then(res=>{
+      if(res.data&&res.data.status===1){
+        // this.setState({imgSrc:$envconfig.imgSrc+res.data.image_path})
+        // console.log(this.state.imgSrc)
+        this.props.saveImg($envconfig.imgSrc+res.data.image_path)
+        console.log(this.props.formData)
+        // debugger;
+      }
+    })
+
+  }
+
   infoSubmit = () => {
     
   }
-
+  getRecord = async type =>{
+    await getRecord({type})
+  }
+  
 
   render() {
     return (
@@ -69,22 +102,22 @@ class Home extends Component{
         <form className="home-form">
           <div className="home-form-item">
             <span>sales acount :</span>
-            <input type="text" placeholder="sales acount" value={this.state.formData.orderSum} onChange={this.handleInput.bind(this,'orderSum')}/>
+            <input type="text" placeholder="sales acount" value={this.props.formData.orderSum} onChange={this.handleInput.bind(this,'orderSum')}/>
           </div> 
           <div className="home-form-item">
             <span>customer name :</span>
-            <input type="text" placeholder="customer name" value={this.state.formData.name} onChange={this.handleInput.bind(this,'name')}/>
+            <input type="text" placeholder="customer name" value={this.props.formData.name} onChange={this.handleInput.bind(this,'name')}/>
           </div>  
           <div className="home-form-item">
             <span>sales phone :</span>
-            <input type="text" placeholder="sales phone" value={this.state.formData.phoneNo} onChange={this.handleInput.bind(this,'phoneNo')}/>
+            <input type="text" placeholder="sales phone" value={this.props.formData.phoneNo} onChange={this.handleInput.bind(this,'phoneNo')}/>
           </div>   
         </form>
         <div className="upload-img-con">
           <p className="common-title">please choose what you prefer ~</p>
           <div className="file-lable">
-            <span className="common-select-btn">upload image</span>
-            <input type="file" onChange={this.uploadImg}/>
+            <span className="common-select-btn">select now</span>
+            {/* <input type="file" onChange={this.uploadImg}/> */}
           </div>
           {/* <img src={this.props.formData.imgpath} className="select-img" alt=""/> */}
         </div>
@@ -94,7 +127,7 @@ class Home extends Component{
             <span className="common-select-btn">upload image</span>
             <input type="file" onChange={this.uploadImg}/>
           </div>
-          {/* <img src={this.props.formData.imgpath} className="select-img" alt=""/> */}
+          <img src={this.props.formData.imgSrc} className="select-img" alt=""/>
         </div>
         <OpacityTouch className="submit-btn" clickCallBack={this.infoSubmit}></OpacityTouch>
       </main>
@@ -103,4 +136,12 @@ class Home extends Component{
 
 }
 
-export default Home
+export default connect(state => ({
+  formData: state.formData,
+  proData: state.proData
+}),{
+  saveFormData,
+  saveImg,
+  clearData,
+  clearSelected
+})(Home)

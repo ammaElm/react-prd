@@ -10,6 +10,8 @@ import * as serviceWorker from './serviceWorker';
 import './utils/setRem.js'
 import './style/base.css'
 import './style/iconfont.css'
+import {Provider} from 'react-redux';
+import store from '@/store/store';
 
 
 
@@ -20,10 +22,9 @@ const render = Component =>{
     // <AppContainer>
     //   <Component />
     // </AppContainer>,
-    <div className="main-container">
-      {/* <PubHeader /> */}
+    <Provider store={store}>
       <Component />
-    </div>,
+    </Provider>,
     document.getElementById('root')
   )
 }

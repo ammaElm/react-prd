@@ -59,6 +59,7 @@ npm run build （发布）
 ## 技术栈
 
 * react
+* redux
 * webpack
 * react-router
 * ES6/7/8
@@ -74,6 +75,8 @@ npm run build （发布）
 * iconfont引入
 * navlink路由跳转
 * ReactCSSTransitionGroup动画实现
-* 使用webpack2中import()乙部加载组件;详见：https://segmentfault.com/a/1190000009820646
+* 使用webpack2中import()异步加载组件;详见：https://segmentfault.com/a/1190000009820646
+* axios封装
+* FormData上传图片
 
 
