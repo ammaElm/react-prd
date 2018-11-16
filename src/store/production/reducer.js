@@ -1,6 +1,6 @@
 import * as pro from './action-type'
 import Immutable from 'immutable'
-// import { state } from 'fs';
+// import { fromJS } from "immutable";
 
 let defaultState = {
   /**
@@ -29,13 +29,13 @@ export const proData = ( state = defaultState, action ) => {
       imuItem = Immutable.Map(state.dataList[action.index])
       imuItem = imuItem.set('selectStatus', !imuItem.get('selectStatus'))
       imuDataList = imuDataList.set(action.index, imuItem)
-      return {...state,...{dataList:imuDataList.toJs()}}
+      return {...state,...{dataList:imuDataList.toJS()}}
     case pro.EDITPRODUCTION:
       imuDataList = Immutable.List(state.dataList)
       imuItem = Immutable.Map(state.dataList[action.index])
       imuItem = imuItem.set('selectNum', action.selectNum)
       imuDataList = imuDataList.set(action.index, imuItem)
-      return {...state,...{dataList:imuDataList.toJs()}}
+      return {...state,...{dataList:imuDataList.toJS()}}
     case pro.CLEARSELECTED:
       imuDataList = Immutable.List(state.dataList)
       for (let i = 0;i<state.dataList.length;i++){

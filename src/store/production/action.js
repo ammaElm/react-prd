@@ -19,14 +19,15 @@ export const getProData = () => {
   return async dispatch => {
     try{
       let result = await getProduction()
-      result.map(item => {
+      let res = result.data.data.data
+      res.map(item => {
         item.selectStatus = true;
         item.selectNum = 0;
         return item;
       })
       dispatch({
         type: pro.GETPRODUCTION,
-        dataList: result,
+        dataList: res,
       })
 
     }catch(err){

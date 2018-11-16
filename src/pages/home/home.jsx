@@ -7,7 +7,7 @@ import PubHeader from '../../components/pubHeader/pubHeader'
 import OpacityTouch from '../../components/opacityTouch/opacityTouch'
 import { uploadIMG, getRecord } from '../../api/api.js'
 import $envconfig from '../../utils/envconfig.js'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { saveFormData, saveImg, clearData } from '@/store/home/action'
 import { clearSelected } from '@/store/production/action'
@@ -39,7 +39,8 @@ class Home extends Component{
   selectedProList=[];
 
   componentWillMount(){
-    this.getRecord('passed')
+    // this.getRecord('passed')
+    this.initData(this.props)
   }
 
   handleInput = (type,event) => {
@@ -89,9 +90,20 @@ class Home extends Component{
   infoSubmit = () => {
     
   }
+  
   getRecord = async type =>{
     await getRecord({type})
   }
+
+  initData = props => {
+    this.selectedProList = []
+    props.proData.dataList.forEach(item=>{
+      if(item.selectStatus&&item.selectNum){
+        this.selectedProList.push(item)
+      }
+    })
+  }
+
   
 
   render() {
@@ -115,11 +127,16 @@ class Home extends Component{
         </form>
         <div className="upload-img-con">
           <p className="common-title">please choose what you prefer ~</p>
-          <div className="file-lable">
-            <span className="common-select-btn">select now</span>
-            {/* <input type="file" onChange={this.uploadImg}/> */}
-          </div>
-          {/* <img src={this.props.formData.imgpath} className="select-img" alt=""/> */}
+          <Link to="/production" className="common-select-btn">
+            {
+              this.selectedProList.length?<ul className="selected-pro-list">
+              {
+                this.selectedProList.map((item,index)=>{
+                  return <li key={index} className="selected-pro-item ellipsis">{item.product_name}x{item.selectNum}</li>
+                })
+              }</ul>:'select what you prefer'
+            }
+          </Link>
         </div>
         <div className="upload-img-con">
           <p className="common-title">please upload your image</p>

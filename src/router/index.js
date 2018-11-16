@@ -8,6 +8,7 @@ import home from '@/pages/home/home'
 // import game from '../pages/game/game.jsx'
 const help = asyncComponent(()=>import("../pages/help/help"))
 const game = asyncComponent(()=>import("../pages/game/game"))
+const production = asyncComponent(()=>import("../pages/production/production"))
 
 export default class RouteConfig extends Component{
   render(){
@@ -17,6 +18,7 @@ export default class RouteConfig extends Component{
           <Route path="/" exact component={home}></Route>
           <Route path="/helpcenter" exact component={help}></Route>
           <Route path="/game" exact component={game}></Route>
+          <Route path="/production" exact component={production}></Route>
         </Switch>
       </HashRouter>
     )

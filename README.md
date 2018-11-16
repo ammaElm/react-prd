@@ -78,5 +78,7 @@ npm run build （发布）
 * 使用webpack2中import()异步加载组件;详见：https://segmentfault.com/a/1190000009820646
 * axios封装
 * FormData上传图片
+* redux
+store整合数据；action-type记录操作名称；action：指令对象，记录指令类型和操作数据；reducer操作修改state数据
 
 
