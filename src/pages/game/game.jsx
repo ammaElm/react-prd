@@ -7,6 +7,7 @@ class GamePage extends Component {
     return (
       <div>
         <PubHeader title="RELEX SOME TIME"/>
+        
       </div>
     )
   }
